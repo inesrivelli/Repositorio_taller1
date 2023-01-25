@@ -21,9 +21,11 @@ rm(pkg)
 
 # Load data ---------------------------------------------------------------
 # I recomend you using the package here
-dta<-read.table(here("stores","US90.txt"), sep="", header=TRUE)
+dta<-read.table("../stores/US90.txt", sep="", header=TRUE)
 
 
 # plot data ---------------------------------------------------------------
 
 plot(dta$gdpgr, dta$gdpcapgr, pch="*")
+title(main = "Crecimiento del PBI y PBI per capita",
+      xlab = "PBIpc", ylab = "PBI")
