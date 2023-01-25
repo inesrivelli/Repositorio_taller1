@@ -13,9 +13,8 @@ local({r <- getOption("repos"); r["CRAN"] <- "http://cran.r-project.org"; option
 
 
 # Load Packages -----------------------------------------------------------
-pkg<-list("dplyr","here")
-lapply(pkg, require, character.only=T)
-rm(pkg)
+require("pacman")
+p_load("dplyr")
 
 
 
@@ -26,6 +25,8 @@ dta<-read.table("../stores/US90.txt", sep="", header=TRUE)
 
 # plot data ---------------------------------------------------------------
 
-plot(dta$gdpgr, dta$gdpcapgr, pch="*")
-title(main = "Crecimiento del PBI y PBI per capita",
-      xlab = "PBIpc", ylab = "PBI")
+
+plot(dta$gdpgr, dta$gdpcapgr, pch="o")
+title(main = "GDP  and GDPpc growth",
+      xlab = "GDPpc", ylab = "GDP")
+
