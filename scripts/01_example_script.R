@@ -13,17 +13,18 @@ local({r <- getOption("repos"); r["CRAN"] <- "http://cran.r-project.org"; option
 
 
 # Load Packages -----------------------------------------------------------
-pkg<-list("dplyr","here")
-lapply(pkg, require, character.only=T)
-rm(pkg)
+require("pacman")
+p_load("dplyr")
 
 
 
 # Load data ---------------------------------------------------------------
 # I recomend you using the package here
-dta<-read.table(here("stores","US90.txt"), sep="", header=TRUE)
+dta<-read.table("../stores/US90.txt", sep="", header=TRUE)
 
 
 # plot data ---------------------------------------------------------------
 
-plot(dta$gdpgr, dta$gdpcapgr, pch="*")
+plot(dta$gdpgr, dta$gdpcapgr, pch="o")
+title(main = "GDP  and GDPpc growth",
+      xlab = "GDPpc", ylab = "GDP")
